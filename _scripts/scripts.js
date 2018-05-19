@@ -16,17 +16,34 @@ var canvasSize = 200,
     runBtn = document.getElementById('run'),
     percDiv = document.getElementById('percent'),
     input = document.getElementById('input');
+    error = document.getElementById('error');
+    dontRun = false;
 
 // On keyup save value of input
 input.addEventListener("input", function() {
     if(isNaN(input.value)) {
       input.value = '';
     }
+    else {
+      if(input.value > 99) {
+        dontRun = true;
+        error.innerHTML = "Please enter a value between 0 and 100";
+        runBtn.href = "javascript:void(0)";
+      }
+      else {
+        dontRun = false;
+      }
+    }
 });
 
 // When clicking run button, fire run funtion and pass the value and divide by 100 to get percentage as a fraction
 runBtn.addEventListener("click", function() {
-  run(input.value/100);
+  if(dontRun == true) {
+    return false;
+  }
+  else {
+    run(input.value/100);
+  }
 });
 
 // Run function
