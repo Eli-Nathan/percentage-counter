@@ -1,6 +1,3 @@
-var $ = require('jquery');
-var $ = require('bootstrap');
-
 // Set canvas size
 var canvasSize = 200,
   // Set center point
