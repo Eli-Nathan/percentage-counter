@@ -4,12 +4,17 @@ $blue: #062F4F;
 
 body {
   text-align: center;
-  background: #fd746c;  /* fallback for old browsers */
+  background: #fd746c;
+  /* fallback for old browsers */
   background: -webkit-linear-gradient(left, #ff9068, #fd746c);
   background: -o-linear-gradient(left, #ff9068, #fd746c);
-  background: linear-gradient(to right, #ff9068, #fd746c);
-  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ff9068, #fd746c); /* Chrome 10-25, Safari 5.1-6 */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-family: 'Roboto', verdana;
+  color: #fff;
+}
+
+a {
   color: #fff;
 }
 
@@ -68,7 +73,7 @@ input {
   border: 0;
   outline: 0;
   display: block;
-  margin:0 auto;
+  margin: 0 auto;
   border-bottom: 1px solid #eee;
   font-family: helvetica;
   font-size: 24px;
