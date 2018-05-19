@@ -3,3 +3,4 @@ markdown: redcarpet
 highlighter: null # or rouge or null
 exclude: ["node_modules", "gulpfile.js", "package.json",  "README.md", "_scripts", "_scss", "gemfile", "Gemfile.lock"]
 url: "https://github.com/Ely-Nathan/percentage-counter"
+baseurl: "/percentage-counter"
