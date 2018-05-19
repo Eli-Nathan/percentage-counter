@@ -32,6 +32,7 @@ input.addEventListener("input", function() {
       }
       else {
         dontRun = false;
+        error.innerHTML = "";
       }
     }
 });
