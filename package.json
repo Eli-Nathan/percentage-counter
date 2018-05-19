@@ -47,6 +47,8 @@
     "async": "^2.6.0",
     "bootstrap": "^4.0.0",
     "each-async": "^1.1.1",
+    "executable": "^4.1.1",
+    "gifsicle": "^3.0.4",
     "gulp-mamp": "0.0.5",
     "popper.js": "^1.14.1",
     "server": "^1.0.18"
