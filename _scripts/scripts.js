@@ -27,7 +27,7 @@ input.addEventListener("input", function() {
     else {
       if(input.value > 99) {
         dontRun = true;
-        error.innerHTML = "Please enter a value between 0 and 100";
+        error.innerHTML = "Please enter a value between 0 and 99";
         runBtn.href = "javascript:void(0)";
       }
       else {
