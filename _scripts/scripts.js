@@ -49,7 +49,7 @@ function run(percent) {
 
         arc = s.path(path);
         arc.attr({
-          stroke: '#3da08d',
+          stroke: '#fff',
           fill: 'none',
           strokeWidth: 12
         });
