@@ -9,3 +9,5 @@ Takes input value and animates a svg path to that point in a 360 degree circle
 This project uses my standard Gulp/Jekyll template
 
 Simply clone the project, and run `npm install` and then `npm run dev`
+
+This project is a work in progress, please feel free to change it, improve it and use it however you like.
