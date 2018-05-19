@@ -11,3 +11,8 @@ This project uses my standard Gulp/Jekyll template
 Simply clone the project, and run `npm install` and then `npm run dev`
 
 This project is a work in progress, please feel free to change it, improve it and use it however you like.
+
+# Support
+Bad browsers: IE 9 +
+
+Good browsers: All the main ones :)
