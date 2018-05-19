@@ -9,6 +9,7 @@ var gulp = require('gulp'),
   gulpif = require('gulp-if'),
   gutil = require('gulp-util'),
   prefix = require('gulp-autoprefixer'),
+  jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll',
   reload = browserSync.reload,
   rename = require("gulp-rename"),
   runSequence = require('run-sequence'),
@@ -19,7 +20,13 @@ var gulp = require('gulp'),
   svgmin = require('gulp-svgmin'),
   imagemin = require('gulp-imagemin');
 
-
+  gulp.task('jekyll-build', function(done) {
+    return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--watch', '--incremental'], {
+        stdio: 'inherit'
+      })
+      .on('close', done);
+  });
+  
 gulp.task('dev-server', function() {
   return browserSync({
     server: {
@@ -109,7 +116,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('server', function(callback) {
-  runSequence([ 'dev-server', 'watch'], callback);
+  runSequence(['jekyll-build', 'dev-server', 'watch'], callback);
 });
 
 gulp.task('default', function() {
