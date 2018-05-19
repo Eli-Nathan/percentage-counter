@@ -1,29 +1,44 @@
 var $ = require('jquery');
 var $ = require('bootstrap');
 
+// Set canvas size
 var canvasSize = 200,
+  // Set center point
     centre = canvasSize/2,
+  // Set circle radius
     radius = canvasSize*0.8/2,
+  // Define s as the Snap.svg svg
     s = Snap('#svg'),
+  //Set path as empty string
     path = "",
+  // Arc is the path
     arc = s.path(path),
+  // Set start point
     startY = centre-radius,
+  // Define elements: Button, Percent text and input
     runBtn = document.getElementById('run'),
     percDiv = document.getElementById('percent'),
     input = document.getElementById('input');
 
-input.onkeyup = function(evt) {
+// On keyup save value of input
+input.addEventListener("input", function() {
     if(isNaN(input.value)) {
       input.value = '';
     }
-};
+});
 
-runBtn.onclick = function() {
+// When clicking run button, fire run funtion and pass the value and divide by 100 to get percentage as a fraction
+runBtn.addEventListener("click", function() {
   run(input.value/100);
-};
+});
 
+// Run function
 function run(percent) {
+  // Set endpoint as the percent of 360
     var endpoint = percent*360;
+
+  // Fire snap event
+  // 2 second animation
     Snap.animate(0, endpoint,   function (val) {
         arc.remove();
 
@@ -46,4 +61,5 @@ function run(percent) {
     }, 2000, mina.easeinout);
 }
 
+// Fire run event
 run(input.value/100);
