@@ -22,8 +22,8 @@ dontRun = false;
 // Submit value if user presses enter key
 input.addEventListener("keypress", function(event) {
   if (event.keyCode == 13) {
-      runBtn.click();
-    }
+    runBtn.click();
+  }
 });
 
 // On keyup save value of input
@@ -55,33 +55,29 @@ runBtn.addEventListener("click", function() {
 function run(percent) {
   // Set endpoint as the percent of 360
   var endpoint = percent * 360;
-  if(endpoint == 360) {
+  // Fix Snap SVG bug that doesn't allow for full circle
+  if (endpoint == 360) {
     endpoint = 359.9;
   }
   // Fire snap event
   // 2 second animation
   Snap.animate(0, endpoint, function(val) {
     arc.remove();
-      var d = val,
-        dr = d - 90;
-        radians = Math.PI * (dr) / 180,
-        endx = centre - radius * Math.cos(radians),
-        endy = centre + radius * Math.sin(radians),
-        largeArc = d > 180 ? 1 : 0;
-        if (d == 1) {
-          path = "M100,20 A80,80 0 1,0 100.11880525121381,20.000088216846862";
-        }
-        else {
-          path = "M" + centre + "," + startY + " A" + radius + "," + radius + " 0 " + largeArc + ",0 " + endx + ","   + endy;
-        }
+    var d = val,
+      dr = d - 90;
+    radians = Math.PI * (dr) / 180,
+      endx = centre - radius * Math.cos(radians),
+      endy = centre + radius * Math.sin(radians),
+      largeArc = d > 180 ? 1 : 0;
+    path = "M" + centre + "," + startY + " A" + radius + "," + radius + " 0 " + largeArc + ",0 " + endx + "," + endy;
 
-        arc = s.path(path);
-        arc.attr({
-          stroke: '#fff',
-          fill: 'none',
-          strokeWidth: 12
-        });
-        percDiv.innerHTML = Math.round(val / 360 * 100) + '%';
+    arc = s.path(path);
+    arc.attr({
+      stroke: '#fff',
+      fill: 'none',
+      strokeWidth: 12
+    });
+    percDiv.innerHTML = Math.round(val / 360 * 100) + '%';
 
 
   }, 2000, mina.easeinout);
