@@ -21,12 +21,12 @@ var gulp = require('gulp'),
   imagemin = require('gulp-imagemin');
 
   gulp.task('jekyll-build', function(done) {
-    return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--watch', '--incremental'], {
+    return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--watch', '--incremental', '--baseurl='], {
         stdio: 'inherit'
       })
       .on('close', done);
   });
-  
+
 gulp.task('dev-server', function() {
   return browserSync({
     server: {
