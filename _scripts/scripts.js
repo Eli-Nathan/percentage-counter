@@ -19,14 +19,21 @@ var canvasSize = 200,
 error = document.getElementById('error');
 dontRun = false;
 
+// Submit value if user presses enter key
+input.addEventListener("keypress", function(event) {
+  if (event.keyCode == 13) {
+      runBtn.click();
+    }
+});
+
 // On keyup save value of input
 input.addEventListener("input", function() {
   if (isNaN(input.value)) {
     input.value = '';
   } else {
-    if (input.value > 99) {
+    if (input.value > 100) {
       dontRun = true;
-      error.innerHTML = "Please enter a value between 0 and 99";
+      error.innerHTML = "Please enter a value between 0 and 100";
       runBtn.href = "javascript:void(0)";
     } else {
       dontRun = false;
@@ -52,7 +59,9 @@ function run(percent) {
   // Fire snap event
   // 2 second animation
   Snap.animate(0, endpoint, function(val) {
-    arc.remove();
+    if (val < 360) {
+      arc.remove();
+    }
 
     var d = val,
       dr = d - 90;
