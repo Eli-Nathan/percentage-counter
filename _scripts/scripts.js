@@ -31,9 +31,9 @@ input.addEventListener("input", function() {
   if (isNaN(input.value)) {
     input.value = '';
   } else {
-    if (input.value > 99) {
+    if (input.value > 100) {
       dontRun = true;
-      error.innerHTML = "Please enter a value between 0 and 99";
+      error.innerHTML = "Please enter a value between 0 and 100";
       runBtn.href = "javascript:void(0)";
     } else {
       dontRun = false;
@@ -55,6 +55,9 @@ runBtn.addEventListener("click", function() {
 function run(percent) {
   // Set endpoint as the percent of 360
   var endpoint = percent * 360;
+  if(endpoint == 360) {
+    endpoint = 359.9;
+  }
   // Fire snap event
   // 2 second animation
   Snap.animate(0, endpoint, function(val) {
