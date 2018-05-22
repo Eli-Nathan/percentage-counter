@@ -4,6 +4,8 @@ Simple percentage counter using Snap.svg.
 
 Takes input value and animates a svg path to that point in a 360 degree circle
 
+[View demo](https://ely-nathan.github.io/percentage-counter)
+
 # Project usage
 
 This project uses my standard Gulp/Jekyll template
